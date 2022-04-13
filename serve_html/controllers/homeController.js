@@ -19,34 +19,9 @@ exports.sendReqParam = (req, res) => {
 };
 exports.respondWithBook = (req, res) => {
     let bookNumber = req.params.bookNumber;
-    if (bookNumber == 1) {
-        Books.findOne({bookName: "Harry Potter and the Goblet of Fire"}, (error, books) => {
-            console.log(books);
-            if (!error) {
-                res.render(bookNumber, {data: books});
-            } else {
-                console.log('ERROR' + error);
-            }
-        });
-    } else if (bookNumber == 2) {
-        Books.findOne({bookName: "The Return of the King"}, (error, books) => {
-            console.log(books);
-            if (!error) {
-                res.render(bookNumber, {data: books});
-            } else {
-                console.log('ERROR' + error);
-            }
-        });
-    } else if (bookNumber == 3) {
-        Books.findOne({bookName: "The Hunger Games"}, (error, books) => {
-            console.log(books);
-            if (!error) {
-                res.render(bookNumber, {data: books});
-            } else {
-                console.log('ERROR' + error);
-            }
-        });
-    }
+    Books.find( {}, (error, data) => {
+        if (data) res.render(bookNumber, {data: data[bookNumber]});
+    });
     //Books.findOne({bookName: "The Hunger Games"}, function(err, obj) {console.log(obj.buyLink);})
     //console.log(Books.bookName);
 };
