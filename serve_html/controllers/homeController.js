@@ -19,8 +19,8 @@ exports.sendReqParam = (req, res) => {
 };
 exports.respondWithBook = (req, res) => {
     let bookNumber = req.params.bookNumber;
-    Books.find( {}, (error, data) => {
-        if (data) res.render(bookNumber, {data: data[bookNumber-1]});
+    Books.find( {}, (error, books) => {
+        if (books) res.render(bookNumber, {data: books[bookNumber-1]});
     });
     //Books.findOne({bookName: "The Hunger Games"}, function(err, obj) {console.log(obj.buyLink);})
     //console.log(Books.bookName);
