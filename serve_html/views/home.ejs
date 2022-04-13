@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 10</title>
+    <link rel="stylesheet" href="lab10">
+</head>
+
+<body>
+    <h1>Click on any book to see the details.</h1>
+    <div class="content">
+        <% if(data.length){ for(var i=0; i< data.length; i++) {%>
+            <table>
+                <tr>
+                    <td>
+                        <a href="books/<%= (i+1) %>"><%= data[i].bookName%></a>
+                    </td>
+                </tr>
+            </table>
+            <% } }else{ %>
+                <table>
+                    <tr>
+                        <td colspan="3">No books were found</td>
+                    </tr>
+                </table>
+                <% } %>
+    </div>
+</body>
+
+</html>
